@@ -1,5 +1,5 @@
-EE_BIN = SpaceShooterTutorial.elf
-EE_OBJS = main.o Data/stateManager.o Data/menuState.o Data/gameState.o Data/overState.o
+EE_BIN = RPGMakerPSEnginePS2.elf
+EE_OBJS = main.o Data/stateManager.o Data/menuState.o Data/gameState.o Data/overState.o Data/ingameManager.o Data/worldMap.o Data/Town.o Data/Dungeon.o Data/Battle.o
 EE_LIBS = -L$(PS2SDK)/ports/lib -L$(PS2DEV)/gsKit/lib/ -Lmodules/ds34bt/ee/ -Lmodules/ds34usb/ee/ -lpatches -lfileXio -lpad -ldebug -lmath3d -ljpeg -lfreetype -lgskit_toolkit -lgskit -ldmakit -lpng -lz -lmc -laudsrv -lelf-loader -laudsrv -lc
 
 EE_INCS += -I$(PS2DEV)/gsKit/include -I$(PS2SDK)/ports/include -I$(PS2SDK)/ports/include/freetype2 -I$(PS2SDK)/ports/include/zlib
@@ -8,10 +8,6 @@ EE_INCS += -I$(PS2DEV)/gsKit/include -I$(PS2SDK)/ports/include -I$(PS2SDK)/ports
 
 EE_CFLAGS = -I$(PS2DEV)/gsKit/include
 EE_LDFLAGS = -L$(PS2DEV)/gsKit/lib
-
-
-
-
 
 all: $(EE_BIN) audsrv.irx
 
