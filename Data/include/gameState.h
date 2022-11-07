@@ -7,6 +7,6 @@ void GameStart(GSGLOBAL* gsGlobal);
 void GameUpdate(GSGLOBAL* gsGlobal);
 void GameEnd(GSGLOBAL* gsGlobal);
 
-extern StateManager MenuState;
+extern StateManager GameState;
 
 #endif

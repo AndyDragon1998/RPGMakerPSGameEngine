@@ -1,3 +1,15 @@
+/*****************************************************************************/
+/*  Author        : Drakonchik(aka Andy)                                     */
+/*  Machine       : Sony PlayStation Portable				                 */
+/*  OS			  : PlayStation Portable System (6.61 PRO-C)                 */
+/*  Language      : GNU C                                                    */
+/*                                                                           */
+/*  File Contents : INGAME STATES MANAGER BATTLE MAP CITY AND DUNGEON	     */
+/*  File Attribute: SOURCE                                                   */
+/*  File Name     : menuState.c                                              */
+/*                                                                           */
+/*****************************************************************************/
+
 #include "include/ingameManager.h"
 
 void IngameStart(IngameMachine* machine, IngameManager* state, GSGLOBAL* gsGlobal)

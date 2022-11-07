@@ -21,12 +21,15 @@
 #include "Data/include/gameState.h"
 #include "Data/include/overState.h"
 
+#include "Data/include/pad.h"
 
 StateMachine GameMachineState;
 
 int main()
 {
-
+	// Initialize GamePad
+	PadInitialize();
+	
 	u64 Black = GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00);
 	
 	u64 TexCol = GS_SETREG_RGBAQ(0x80,0x80,0x80,0x80,0x00);
@@ -71,7 +74,9 @@ int main()
 	
 	while(1)
 	{		
-	
+		// Update GamePads
+		UpdatePad();
+		
 		StateMachineUpdate(&GameMachineState, gsGlobal);
 				
 		gsKit_queue_exec(gsGlobal);

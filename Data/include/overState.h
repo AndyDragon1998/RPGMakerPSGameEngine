@@ -7,6 +7,6 @@ void OverStart(GSGLOBAL* gsGlobal);
 void OverUpdate(GSGLOBAL* gsGlobal);
 void OverEnd(GSGLOBAL* gsGlobal);
 
-extern StateManager MenuState;
+extern StateManager GameState;
 
 #endif
