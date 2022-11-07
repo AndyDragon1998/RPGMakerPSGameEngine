@@ -1,4 +1,5 @@
 EE_BIN = RPGMakerPSEnginePS2.elf
+EE_BIN_COMPRESSED = compressed_$(EE_BIN)
 
 EE_OBJS = main.o \
 	Data/pad.o Data/stateManager.o Data/menuState.o Data/gameState.o Data/overState.o Data/ingameManager.o Data/worldMap.o Data/Town.o Data/Dungeon.o Data/Battle.o Data/soundEffects.o Data/musicManager.o \
@@ -18,8 +19,16 @@ BIN2S = @bin2s
 
 all: $(EE_BIN)
 
+strip: $(EE_BIN)
+	echo "Stripping $(EE_BIN)..."
+	$(EE_STRIP) $(EE_BIN)
+	
+compress: strip
+	echo "Compressing to $(EE_BIN_COMPRESSED)...\n"
+	ps2-packer $(EE_BIN) $(EE_BIN_COMPRESSED) > /dev/null
+
 clean:
-	rm -f $(EE_BIN) $(EE_OBJS)
+	rm -f $(EE_BIN) $(EE_BIN_COMPRESSED) $(EE_OBJS)
 
 run: $(EE_BIN)
 	ps2client execee host:$(EE_BIN)
