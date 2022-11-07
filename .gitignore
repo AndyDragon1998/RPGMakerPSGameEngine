@@ -1,0 +1,15 @@
+#EE executables
+*.elf
+*.ELF
+
+
+#Compiled IOP drivers
+*.irx
+*.IRX
+
+#object files
+*.o
+
+#embedded IOP drivers
+*_irx.s
+#*_irx.c #Uncomment if u wanna use bin2c instead of bin2s
