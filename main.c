@@ -17,7 +17,7 @@
 #include <dmaKit.h>
 #include <gsToolkit.h>
 #include <iopcontrol.h> 
-//#include <patches.h>
+#include <sbv_patches.h>
 #include "Data/include/menuState.h"
 #include "Data/include/gameState.h"
 #include "Data/include/overState.h"

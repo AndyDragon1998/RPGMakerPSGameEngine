@@ -22,15 +22,15 @@ extern Controller PlaystationGamePad;
 
 GSTEXTURE TitleImage;
 
-//BGM MenuMusicy;
+BGM MenuMusicy;
 
 int selectedOption = 0; // 0 - New Game 1 - Load Game 2- ShutDown game
 
 void MenuStart(GSGLOBAL* gsGlobal)
 {
-	//initMusicFormat();
-	//MenuMusicy.fileName = "host:Audio/BGM/CatInSpaceMono.wav";
-	//LoadMusic(&MenuMusicy);
+	initMusicFormat();
+	MenuMusicy.fileName = "host:Audio/BGM/CatInSpaceMono.wav";
+	LoadMusic(&MenuMusicy);
 
 
 	printf("Loading Image in Memory...\n");
@@ -41,7 +41,7 @@ void MenuStart(GSGLOBAL* gsGlobal)
 void MenuUpdate(GSGLOBAL* gsGlobal)
 {
 	// This part here plays the music
-	//PlayMusic(&MenuMusicy);
+	PlayMusic(&MenuMusicy);
 	
 	// Change Menu
 	if(PlaystationGamePad.UP_KEY_TAP || selectedOption != 0)

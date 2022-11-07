@@ -38,7 +38,7 @@ void LoadMusic(BGM *bgm)
 		
 	//bgm->ret = SifLoadModule("rom0:LIBSD", 1, NULL);
 
-	bgm->ret = SifLoadModule("host:audsrv.irx", 1, NULL);
+	bgm->ret = SifExecModuleBuffer(&audsrv_irx, size_audsrv_irx, 0, NULL, NULL);
 	printf("Inside Music Format Function 2\n");
 	bgm->ret = audsrv_init();
 	printf("Inside Music Format Function 3\n");
