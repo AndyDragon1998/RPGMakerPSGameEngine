@@ -24,7 +24,13 @@
 
 #include "Data/include/pad.h"
 
+#define IMPORT_BIN2C(_n) \
+    extern unsigned char _n[];   \
+    extern int size_##_n
 
+IMPORT_BIN2C(padman_irx);
+IMPORT_BIN2C(libsd_irx);
+IMPORT_BIN2C(audsrv_irx);
 
 StateMachine GameMachineState;
 
@@ -46,6 +52,9 @@ int main()
 
 	reset_iop();
 	
+	SifExecModuleBuffer(padman_irx, size_padman_irx, 0, NULL, NULL);
+	SifExecModuleBuffer(libsd_irx, size_libsd_irx, 0, NULL, NULL);
+	SifExecModuleBuffer(audsrv_irx, size_audsrv_irx, 0, NULL, NULL);
 	// Initialize GamePad
 	PadInitialize();
 	
