@@ -30,6 +30,7 @@ void GameDraw(GSGLOBAL* gsGlobal, u64 colour)
 {
 
 }
+
 void GameEnd(GSGLOBAL* gsGlobal)
 {
 

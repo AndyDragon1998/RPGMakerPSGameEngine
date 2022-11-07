@@ -16,17 +16,36 @@
 #include <gsKit.h>
 #include <dmaKit.h>
 #include <gsToolkit.h>
-
+#include <iopcontrol.h> 
+//#include <patches.h>
 #include "Data/include/menuState.h"
 #include "Data/include/gameState.h"
 #include "Data/include/overState.h"
 
 #include "Data/include/pad.h"
 
+
+
 StateMachine GameMachineState;
+
+void reset_iop()
+{
+    SifInitRpc(0);
+    // Reset IOP
+    while (!SifIopReset("", 0x0))
+        ;
+    while (!SifIopSync())
+        ;
+    SifInitRpc(0);
+
+    sbv_patch_enable_lmb();
+}
 
 int main()
 {
+
+	reset_iop();
+	
 	// Initialize GamePad
 	PadInitialize();
 	

@@ -12,6 +12,9 @@
 
 #include "include/musicManager.h"
 
+extern unsigned int size_audsrv_irx;
+extern unsigned char audsrv_irx[];
+
 struct audsrv_fmt_t musicFormat;
 
 void initMusicFormat()
@@ -21,7 +24,8 @@ void initMusicFormat()
 	musicFormat.channels = 1;
 	
 	SifInitRpc(0);
-
+		
+	SifExecModuleBuffer(&audsrv_irx, size_audsrv_irx, 0, NULL, NULL);
 	
 }
 
