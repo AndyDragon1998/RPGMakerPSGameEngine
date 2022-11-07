@@ -42,9 +42,6 @@ void MenuUpdate(GSGLOBAL* gsGlobal)
 {
 	// This part here plays the music
 	//PlayMusic(&MenuMusicy);
-
-	int i = (4096 - gsGlobal->CurrentPointer/1024);
-	printf("VRAM: %d\n", i);
 	
 	// Change Menu
 	if(PlaystationGamePad.UP_KEY_TAP || selectedOption != 0)
