@@ -11,10 +11,8 @@ EE_LDFLAGS = -L$(PS2DEV)/gsKit/lib
 
 BIN2S = bin2s
 
-all: $(EE_BIN) audsrv.irx
+all: $(EE_BIN)
 
-audsrv.irx:
-	cp $(PS2SDK)/iop/irx/audsrv.irx $@
 	
 audsrv.s: $(PS2SDK)/iop/irx/audsrv.irx
 	echo "Embedding AUDSRV Driver..."
