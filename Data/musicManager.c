@@ -23,10 +23,6 @@ void initMusicFormat()
 	musicFormat.freq = 44100;
 	musicFormat.channels = 1;
 	
-	SifInitRpc(0);
-		
-	SifExecModuleBuffer(&audsrv_irx, size_audsrv_irx, 0, NULL, NULL);
-	
 }
 
 
@@ -35,10 +31,7 @@ void LoadMusic(BGM *bgm)
 {	
 	printf("Inside Music Format Function\n");
 	char* tempRoot = "host:";
-		
-	//bgm->ret = SifLoadModule("rom0:LIBSD", 1, NULL);
 
-	bgm->ret = SifExecModuleBuffer(&audsrv_irx, size_audsrv_irx, 0, NULL, NULL);
 	printf("Inside Music Format Function 2\n");
 	bgm->ret = audsrv_init();
 	printf("Inside Music Format Function 3\n");
