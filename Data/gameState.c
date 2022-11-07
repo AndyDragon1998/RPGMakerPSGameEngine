@@ -6,7 +6,7 @@
 /*                                                                           */
 /*  File Contents : GAME STATE FOR HANDLING ALL INGAME STATES LIKE BATTLE    */
 /*  File Attribute: SOURCE                                                   */
-/*  File Name     : menuState.c                                              */
+/*  File Name     : gameState.c                                              */
 /*                                                                           */
 /*****************************************************************************/
 

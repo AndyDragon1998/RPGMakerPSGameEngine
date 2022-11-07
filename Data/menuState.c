@@ -30,7 +30,7 @@ int selectedOption = 0; // 0 - New Game 1 - Load Game 2- ShutDown game
 void MenuStart(GSGLOBAL* gsGlobal)
 {
 	initMusicFormat();
-	MenuMusicy.fileName = strcat("","host:Audio/BGM/CatInSpaceMono.wav");
+	MenuMusicy.fileName = "host:Audio/BGM/CatInSpaceMono.wav";
 	printf("Loading Music...\n");
 	LoadMusic(&MenuMusicy);
 	printf("Hello?...\n");
@@ -44,7 +44,7 @@ void MenuStart(GSGLOBAL* gsGlobal)
 void MenuUpdate(GSGLOBAL* gsGlobal)
 {
 	// This part here plays the music
-	PlayMusic(&MenuMusic);
+	PlayMusic(&MenuMusicy);
 
 	int i = (4096 - gsGlobal->CurrentPointer/1024);
 	printf("VRAM: %d\n", i);
