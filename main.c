@@ -78,7 +78,7 @@ int main()
 		UpdatePad();
 		
 		StateMachineUpdate(&GameMachineState, gsGlobal);
-				
+		StateMachineDraw(&GameMachineState, gsGlobal, TexCol);
 		gsKit_queue_exec(gsGlobal);
 		gsKit_sync_flip(gsGlobal);
 		

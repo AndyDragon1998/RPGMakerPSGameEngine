@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*  Author        : Drakonchik(aka Andy)                                     */
-/*  Machine       : Sony PlayStation Portable				                 */
-/*  OS			  : PlayStation Portable System (6.61 PRO-C)                 */
+/*  Machine       : Sony PlayStation 2						                 */
+/*  OS			  : OSDSYS									                 */
 /*  Language      : GNU C                                                    */
 /*                                                                           */
 /*  File Contents : RPG TOWN MANAGER FOR ALL HOUSES AND VILLAGES AND EVENTS  */

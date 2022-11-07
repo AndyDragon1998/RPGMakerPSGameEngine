@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*  Author        : Drakonchik(aka Andy)                                     */
-/*  Machine       : Sony PlayStation Portable				                 */
-/*  OS			  : PlayStation Portable System (6.61 PRO-C)                 */
+/*  Machine       : Sony PlayStation 2						                 */
+/*  OS			  : OSDSYS									                 */
 /*  Language      : GNU C                                                    */
 /*                                                                           */
 /*  File Contents : MAIN MENU FOR STARING NEW GAME LOADING AND SHUT DOWN     */
@@ -17,34 +17,31 @@
 #include "include/pad.h"
 
 extern StateMachine GameMachineState;
+
 extern Controller PlaystationGamePad;
 
-GSTEXTURE image;
+GSTEXTURE TitleImage;
 
-BGM MenuMusicy;
-
-u64 colour;
+//BGM MenuMusicy;
 
 int selectedOption = 0; // 0 - New Game 1 - Load Game 2- ShutDown game
 
 void MenuStart(GSGLOBAL* gsGlobal)
 {
-	initMusicFormat();
-	MenuMusicy.fileName = "host:Audio/BGM/CatInSpaceMono.wav";
-	printf("Loading Music...\n");
-	LoadMusic(&MenuMusicy);
-	printf("Hello?...\n");
+	//initMusicFormat();
+	//MenuMusicy.fileName = "host:Audio/BGM/CatInSpaceMono.wav";
+	//LoadMusic(&MenuMusicy);
+
 
 	printf("Loading Image in Memory...\n");
-	gsKit_texture_png(gsGlobal, &image, "host:Graphics/Images/Title.png");
-	colour = GS_SETREG_RGBAQ(0x80,0x80,0x80,0x80,0x00);
+	gsKit_texture_png(gsGlobal, &TitleImage, "host:Graphics/Images/Title.png");
 
 }
 
 void MenuUpdate(GSGLOBAL* gsGlobal)
 {
 	// This part here plays the music
-	PlayMusic(&MenuMusicy);
+	//PlayMusic(&MenuMusicy);
 
 	int i = (4096 - gsGlobal->CurrentPointer/1024);
 	printf("VRAM: %d\n", i);
@@ -78,17 +75,38 @@ void MenuUpdate(GSGLOBAL* gsGlobal)
 		}
 	}
 
+}
 
-// Drawing Part
+void MenuDraw(GSGLOBAL* gsGlobal, u64 colour)
+{
 
-	gsKit_prim_sprite_texture(gsGlobal, &image,0,  // X1
+	int i = (4096 - gsGlobal->CurrentPointer/1024);
+	printf("VRAM: %d\n", i);
+	
+	
+	switch(selectedOption)
+	{
+		// Start New Game
+		case 0:
+				// Draw New Game
+		break;
+
+		case 1: 
+	  			// Draw Load
+		break;
+		case 2:
+	   			// Draw shut down 
+		break;
+	}
+
+	gsKit_prim_sprite_texture(gsGlobal, &TitleImage,0,  // X1
 						0,  // Y2
 						0.0f,  // U1
 						0.0f,  // V1
-						image.Width, // X2
-						image.Height, // Y2
-						image.Width, // U2
-						image.Height, // V2
+						TitleImage.Width, // X2
+						TitleImage.Height, // Y2
+						TitleImage.Width, // U2
+						TitleImage.Height, // V2
 						2,
 						colour);
 }
@@ -102,5 +120,6 @@ StateManager MenuState =
 {
 	MenuStart,
 	MenuUpdate,
+	MenuDraw,
 	MenuEnd
 };

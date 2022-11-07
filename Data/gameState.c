@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*  Author        : Drakonchik(aka Andy)                                     */
-/*  Machine       : Sony PlayStation Portable				                 */
-/*  OS			  : PlayStation Portable System (6.61 PRO-C)                 */
+/*  Machine       : Sony PlayStation 2						                 */
+/*  OS			  : OSDSYS									                 */
 /*  Language      : GNU C                                                    */
 /*                                                                           */
 /*  File Contents : GAME STATE FOR HANDLING ALL INGAME STATES LIKE BATTLE    */
@@ -26,6 +26,10 @@ void GameUpdate(GSGLOBAL* gsGlobal)
 
 }
 
+void GameDraw(GSGLOBAL* gsGlobal, u64 colour)
+{
+
+}
 void GameEnd(GSGLOBAL* gsGlobal)
 {
 
@@ -35,5 +39,6 @@ StateManager GameState =
 {
 	GameStart,
 	GameUpdate,
+	GameDraw,
 	GameEnd
 };

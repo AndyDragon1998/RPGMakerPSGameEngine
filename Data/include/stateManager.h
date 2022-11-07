@@ -12,6 +12,8 @@ typedef struct
     _voidCallBack *Start;
 
     _voidCallBack *Update;
+    
+    _voidCallBack *Draw;
 
     _voidCallBack *End;
 
@@ -33,5 +35,5 @@ typedef struct
 void StateMachineStart(StateMachine* machine, StateManager* state, GSGLOBAL* gsGlobal);
 void StateMachineChange(StateMachine* machine, StateManager* state, GSGLOBAL* gsGlobal);
 void StateMachineUpdate(StateMachine* machine, GSGLOBAL* gsGlobal);
-
+void StateMachineDraw(StateMachine* machine, GSGLOBAL* gsGlobal, u64 colour);
 #endif

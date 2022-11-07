@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*  Author        : Drakonchik(aka Andy)                                     */
-/*  Machine       : Sony PlayStation Portable				                 */
-/*  OS			  : PlayStation Portable System (6.61 PRO-C)                 */
+/*  Machine       : Sony PlayStation 2						                 */
+/*  OS			  : OSDSYS									                 */
 /*  Language      : GNU C                                                    */
 /*                                                                           */
 /*  File Contents :	GAME STATE MACHINE MANAGER							     */
@@ -46,6 +46,14 @@ void StateMachineUpdate(StateMachine* machine, GSGLOBAL* gsGlobal)
     if (machine != 0)
     {
         machine->CurrentState->Update(gsGlobal);
+    }
+}
+
+void StateMachineDraw(StateMachine* machine, GSGLOBAL* gsGlobal, u64 colour)
+{
+    if (machine != 0)
+    {
+        machine->CurrentState->Draw(gsGlobal);
     }
 }
 
