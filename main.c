@@ -55,12 +55,13 @@ int main()
 	SifExecModuleBuffer(padman_irx, size_padman_irx, 0, NULL, NULL);
 	SifExecModuleBuffer(libsd_irx, size_libsd_irx, 0, NULL, NULL);
 	SifExecModuleBuffer(audsrv_irx, size_audsrv_irx, 0, NULL, NULL);
+	
 	// Initialize GamePad
 	PadInitialize();
 	
 	u64 Black = GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00);
 	
-	u64 TexCol = GS_SETREG_RGBAQ(0x80,0x80,0x80,0x80,0x00);
+	u64 TexCol = GS_SETREG_RGBAQ(0x00,0x00,0xFF,0x80,0x00);
 	
 	GSGLOBAL *gsGlobal = gsKit_init_global();
 	// GS_MODE_PAL_I
@@ -71,6 +72,7 @@ int main()
 	gsGlobal->PSMZ = GS_PSMZ_16S;
 	
 	gsGlobal->Mode = gsKit_check_rom();
+	
 	if(gsGlobal->Mode == GS_MODE_PAL)
 	{
 		gsGlobal->Height = 512;
@@ -79,6 +81,7 @@ int main()
 	{ 
 		gsGlobal->Height = 448;
 	}
+	
 	dmaKit_init(D_CTRL_RELE_OFF,D_CTRL_MFD_OFF, D_CTRL_STS_UNSPEC,
 		    D_CTRL_STD_OFF, D_CTRL_RCYC_8, 1 << DMA_CHANNEL_GIF);
 

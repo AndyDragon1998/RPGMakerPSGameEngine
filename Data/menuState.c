@@ -16,9 +16,14 @@
 #include "include/musicManager.h"
 #include "include/pad.h"
 
-extern StateMachine GameMachineState;
+/****** User External Files ********/
+#include "extern/menuState.ext"
 
-extern Controller PlaystationGamePad;
+/****** User Table Files ***********/
+
+
+/****** User Define Files ***********/
+#include "define/menuState.def"
 
 GSTEXTURE TitleImage;
 
@@ -29,12 +34,10 @@ int selectedOption = 0; // 0 - New Game 1 - Load Game 2- ShutDown game
 void MenuStart(GSGLOBAL* gsGlobal)
 {
 	initMusicFormat();
-	MenuMusicy.fileName = "host:Audio/BGM/CatInSpaceMono.wav";
+	MenuMusicy.fileName = TITLEMUSICPATH;
 	LoadMusic(&MenuMusicy);
 
-
-	printf("Loading Image in Memory...\n");
-	gsKit_texture_png(gsGlobal, &TitleImage, "host:Graphics/Images/Title.png");
+	gsKit_texture_png(gsGlobal, &TitleImage, TITLEIMAGEPATH);
 
 }
 
@@ -77,9 +80,8 @@ void MenuUpdate(GSGLOBAL* gsGlobal)
 void MenuDraw(GSGLOBAL* gsGlobal, u64 colour)
 {
 
-	int i = (4096 - gsGlobal->CurrentPointer/1024);
-	printf("VRAM: %d\n", i);
-	
+	/*int i = (4096 - gsGlobal->CurrentPointer/1024);
+	printf("VRAM: %d\n", i);*/
 	
 	switch(selectedOption)
 	{
@@ -100,10 +102,10 @@ void MenuDraw(GSGLOBAL* gsGlobal, u64 colour)
 						0,  // Y2
 						0.0f,  // U1
 						0.0f,  // V1
-						TitleImage.Width, // X2
-						TitleImage.Height, // Y2
-						TitleImage.Width, // U2
-						TitleImage.Height, // V2
+						TitleImage.Width * 2, // X2
+						TitleImage.Height * 2, // Y2
+						TitleImage.Width * 2, // U2
+						TitleImage.Height * 2, // V2
 						2,
 						colour);
 }

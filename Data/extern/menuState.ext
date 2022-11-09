@@ -1,0 +1,15 @@
+/*****************************************************************************/
+/*  Author        : Drakonchik(aka Andy)                                     */
+/*  Machine       : Sony PlayStation 2						                 */
+/*  OS			  : OSDSYS									                 */
+/*  Language      : GNU C                                                    */
+/*                                                                           */
+/*  File Contents : MAIN MENU FOR STARING NEW GAME LOADING AND SHUT DOWN     */
+/*  File Attribute: EXTERNAL                                                 */
+/*  File Name     : menuState.ext                                            */
+/*                                                                           */
+/*****************************************************************************/
+
+extern StateMachine GameMachineState;
+
+extern Controller PlaystationGamePad;

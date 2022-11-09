@@ -1,0 +1,15 @@
+/*****************************************************************************/
+/*  Author        : Drakonchik(aka Andy)                                     */
+/*  Machine       : Sony PlayStation 2						                 */
+/*  OS			  : OSDSYS									                 */
+/*  Language      : GNU C                                                    */
+/*                                                                           */
+/*  File Contents : MAIN MENU MUSIC AUDIO AND VARIABLE DEFINED VALUES        */
+/*  File Attribute: DEFINED	                                                 */
+/*  File Name     : menuState.def                                            */
+/*                                                                           */
+/*****************************************************************************/
+
+#define TITLEMUSICPATH "host:Audio/BGM/Xomu.wav"
+
+#define TITLEIMAGEPATH "host:Graphics/Images/Title.png"
