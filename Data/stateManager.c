@@ -49,11 +49,11 @@ void StateMachineUpdate(StateMachine* machine, GSGLOBAL* gsGlobal)
     }
 }
 
+
 void StateMachineDraw(StateMachine* machine, GSGLOBAL* gsGlobal, u64 colour)
 {
     if (machine != 0)
     {
-        machine->CurrentState->Draw(gsGlobal);
+        machine->CurrentState->Draw(gsGlobal, colour);
     }
 }
-
