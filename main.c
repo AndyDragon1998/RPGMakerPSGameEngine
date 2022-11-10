@@ -61,9 +61,10 @@ int main()
 	
 	u64 Black = GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00);
 	
-	u64 TexCol = GS_SETREG_RGBAQ(0x00,0x00,0xFF,0x80,0x00);
+	u64 TexCol = GS_SETREG_RGBAQ(0x80,0x80,0x80,0x80,0x00);
 	
 	GSGLOBAL *gsGlobal = gsKit_init_global();
+	
 	// GS_MODE_PAL_I
 	// GS_MODE_VGA_640_60
 	
@@ -99,8 +100,6 @@ int main()
 
 	gsKit_clear(gsGlobal, Black);
 
-
-	
 	StateMachineStart(&GameMachineState, &MenuState, gsGlobal);
 	
 	while(1)
@@ -109,8 +108,11 @@ int main()
 		UpdatePad();
 		
 		StateMachineUpdate(&GameMachineState, gsGlobal);
+		
 		StateMachineDraw(&GameMachineState, gsGlobal, TexCol);
+		
 		gsKit_queue_exec(gsGlobal);
+		
 		gsKit_sync_flip(gsGlobal);
 		
 	}
