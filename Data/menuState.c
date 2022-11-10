@@ -10,13 +10,11 @@
 /*                                                                           */
 /*****************************************************************************/
 
-
 #include "include/gameState.h"
 #include "include/menuState.h"
 #include "include/overState.h"
 #include "include/musicManager.h"
 #include "include/pad.h"
-
 
 /****** User External Files ********/
 #include "extern/menuState.ext"
@@ -29,33 +27,24 @@
 
 GSTEXTURE TitleImage;
 
-GSFONT *gsFont;
-
 BGM MenuMusicy;
 
 int selectedOption = 0; // 0 - New Game 1 - Load Game 2- ShutDown game
-
-u64 WhiteFont;
 
 void MenuStart(GSGLOBAL* gsGlobal)
 {
 	initMusicFormat();
 	MenuMusicy.fileName = TITLEMUSICPATH;
 	LoadMusic(&MenuMusicy);
+
 	gsKit_texture_png(gsGlobal, &TitleImage, TITLEIMAGEPATH);
-	
-	//gsFont = gsKit_init_font(GSKIT_FTYPE_PNG_DAT, "host:Graphics/Fonts/dejavu.png");
-	
-	gsFont = gsKit_init_font(GSKIT_FTYPE_BMP_DAT, "host:Graphics/Fonts/dejavu.bmp");
-	gsKit_font_upload(gsGlobal, gsFont);
-	
-	WhiteFont = GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00);
+
 }
 
 void MenuUpdate(GSGLOBAL* gsGlobal)
 {
 	// This part here plays the music
-	//PlayMusic(&MenuMusicy);
+	PlayMusic(&MenuMusicy);
 	
 	// Change Menu
 	if(PlaystationGamePad.UP_KEY_TAP || selectedOption != 0)
@@ -93,22 +82,12 @@ void MenuDraw(GSGLOBAL* gsGlobal, u64 colour)
 
 	/*int i = (4096 - gsGlobal->CurrentPointer/1024);
 	printf("VRAM: %d\n", i);*/
-			
+	
 	switch(selectedOption)
 	{
 		// Start New Game
 		case 0:
-			gsKit_prim_sprite_texture(gsGlobal, &TitleImage,0,  // X1
-						0,  // Y2
-						0.0f,  // U1
-						0.0f,  // V1
-						TitleImage.Width, // X2
-						TitleImage.Height, // Y2
-						TitleImage.Width, // U2
-						TitleImage.Height, // V2
-						2,
-						WhiteFont);
-			gsKit_font_print(gsGlobal, gsFont, 250, 400, 1, WhiteFont, "NEW GAME");	
+				// Draw New Game
 		break;
 
 		case 1: 
@@ -118,8 +97,17 @@ void MenuDraw(GSGLOBAL* gsGlobal, u64 colour)
 	   			// Draw shut down 
 		break;
 	}
-	
-	//gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00));
+
+	gsKit_prim_sprite_texture(gsGlobal, &TitleImage,0,  // X1
+						0,  // Y2
+						0.0f,  // U1
+						0.0f,  // V1
+						TitleImage.Width * 2, // X2
+						TitleImage.Height * 2, // Y2
+						TitleImage.Width * 2, // U2
+						TitleImage.Height * 2, // V2
+						2,
+						colour);
 }
 
 void MenuEnd(GSGLOBAL* gsGlobal)
