@@ -22,20 +22,24 @@ jobs:
 
       - name: Compile
         run: |
-          make
+          make compress
 
       - name: Upload artifacts
         if: ${{ success() }}
         uses: actions/upload-artifact@v2
         with:
           name: ${{ github.event.repository.name }}--${{ github.sha }}
-          path: RPGMakerPSEnginePS2.elf
+          path: |
+            RPGMakerPSEnginePS2.elf
+            compressed_RPGMakerPSEnginePS2.elf
 
       - name: Create release
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           title: "Latest development build"
-          files: RPGMakerPSEnginePS2.elf
+          files: |
+            RPGMakerPSEnginePS2.elf
+            compressed_RPGMakerPSEnginePS2.elf
